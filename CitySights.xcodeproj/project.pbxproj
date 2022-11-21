@@ -12,6 +12,8 @@
 		9C775AA8292B03EF0000AABB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C775AA7292B03EF0000AABB /* Assets.xcassets */; };
 		9C775AAB292B03EF0000AABB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C775AAA292B03EF0000AABB /* Preview Assets.xcassets */; };
 		9C775AB5292B06D70000AABB /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C775AB4292B06D70000AABB /* ContentModel.swift */; };
+		9C813CAB292BD54B00794EFD /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C813CAA292BD54B00794EFD /* Business.swift */; };
+		9C813CAD292BD8B600794EFD /* BusinessSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C813CAC292BD8B600794EFD /* BusinessSearch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		9C775AA7292B03EF0000AABB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C775AAA292B03EF0000AABB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9C775AB4292B06D70000AABB /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
+		9C813CAA292BD54B00794EFD /* Business.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
+		9C813CAC292BD8B600794EFD /* BusinessSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSearch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,8 @@
 		9C775AB1292B05920000AABB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9C813CAA292BD54B00794EFD /* Business.swift */,
+				9C813CAC292BD8B600794EFD /* BusinessSearch.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -165,7 +171,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C775AA6292B03ED0000AABB /* LaunchView.swift in Sources */,
+				9C813CAB292BD54B00794EFD /* Business.swift in Sources */,
 				9C775AA4292B03ED0000AABB /* CitySightsApp.swift in Sources */,
+				9C813CAD292BD8B600794EFD /* BusinessSearch.swift in Sources */,
 				9C775AB5292B06D70000AABB /* ContentModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
