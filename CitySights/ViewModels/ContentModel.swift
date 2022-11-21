@@ -47,8 +47,8 @@ class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
             locationManager.stopUpdatingLocation()
             
             // TODO- If we have the coordinates of the user, send into YelpAPI
-            getBussinesses(category: "arts", location: userLocation!)
-            getBussinesses(category: "restaurants", location: userLocation!)
+            getBussinesses(category: Constants.sightsKey, location: userLocation!)
+            getBussinesses(category: Constants.restaurantsKey, location: userLocation!)
         }
     }
     //MARK: = Yelp API methods
@@ -60,7 +60,7 @@ class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
          let urlString = "https://api.yelp.com/v3/businesses/search?latitude=\(location.coordinate.latitude)&longitude=\(location.coordinate.longitude)&categories=\(category)&limit=6"
          let url = URL(string: URL)
          */
-        var urlComponents = URLComponents(string: "https://api.yelp.com/v3/businesses/search")
+        var urlComponents = URLComponents(string: Constants.apiUrl)
         urlComponents?.queryItems = [
             URLQueryItem(name: "latitude", value: String(location.coordinate.latitude)),
             URLQueryItem(name: "longitude", value: String(location.coordinate.longitude)),
@@ -75,7 +75,7 @@ class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
             request.httpMethod = "GET"
             
             //Authenticate API calls with the API Key
-            request.addValue("Bearer 5LFSCYgVE8_B6ko-TfEioNmUzTFGun92xDSLSSsMf6VNyq9SYWNbLNIk_jUhoi06XTXxAkTEOUSZIyEGuo6BfgcgqKSY3vzFk3INHx_KZrtu13Ml5Fy5UN0uN3B7Y3Yx", forHTTPHeaderField: "Authorization")
+            request.addValue("Bearer \(Constants.apiKey)", forHTTPHeaderField: "Authorization")
             
             
             //MARK: Get URLSession
@@ -92,10 +92,10 @@ class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
                         
                         DispatchQueue.main.async {
                             //Assign results to the appropriate property
-                            if category == "arts" {
+                            if category == Constants.sightsKey{
                                 self.sights = result.businesses
                             }
-                            else if category == "restaurants"{
+                            else if category == Constants.restaurantsKey{
                                 self.restaurant = result.businesses
                             }
                         }
