@@ -19,6 +19,7 @@
 		9C813CB8292C2A5D00794EFD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C813CB7292C2A5D00794EFD /* HomeView.swift */; };
 		9C813CBB292C378500794EFD /* BusinessList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C813CBA292C378500794EFD /* BusinessList.swift */; };
 		9C813CBD292C44C400794EFD /* BusinessSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C813CBC292C44C400794EFD /* BusinessSectionHeader.swift */; };
+		9C813CBF292C465500794EFD /* BusinessSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C813CBE292C465500794EFD /* BusinessSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		9C813CB7292C2A5D00794EFD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		9C813CBA292C378500794EFD /* BusinessList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessList.swift; sourceTree = "<group>"; };
 		9C813CBC292C44C400794EFD /* BusinessSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSectionHeader.swift; sourceTree = "<group>"; };
+		9C813CBE292C465500794EFD /* BusinessSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 			children = (
 				9C813CBA292C378500794EFD /* BusinessList.swift */,
 				9C813CBC292C44C400794EFD /* BusinessSectionHeader.swift */,
+				9C813CBE292C465500794EFD /* BusinessSection.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C813CBF292C465500794EFD /* BusinessSection.swift in Sources */,
 				9C775AA6292B03ED0000AABB /* LaunchView.swift in Sources */,
 				9C813CAB292BD54B00794EFD /* Business.swift in Sources */,
 				9C813CBD292C44C400794EFD /* BusinessSectionHeader.swift in Sources */,
