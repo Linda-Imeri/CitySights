@@ -10,6 +10,10 @@ import CoreLocation
 
 class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
     var locationManager = CLLocationManager()
+    
+    @Published var restaurant = [Business]()
+    @Published var sights = [Business]()
+    
     override init(){
         //Call init method of NSObject
         super.init()
@@ -43,7 +47,7 @@ class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
             locationManager.stopUpdatingLocation()
             
             // TODO- If we have the coordinates of the user, send into YelpAPI
-            //getBussinesses(category: "arts", location: userLocation!)
+            getBussinesses(category: "arts", location: userLocation!)
             getBussinesses(category: "restaurants", location: userLocation!)
         }
     }
@@ -81,7 +85,24 @@ class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
             let dataTask = session.dataTask(with: request) { (data, response, error) in
                 //Check that there isn't an error
                 if error == nil{
-                    print(response)
+                    do{
+                        //Parse json
+                        let decoder = JSONDecoder()
+                        let result = try decoder.decode(BusinessSearch.self, from: data!)
+                        
+                        DispatchQueue.main.async {
+                            //Assign results to the appropriate property
+                            if category == "arts" {
+                                self.sights = result.businesses
+                            }
+                            else if category == "restaurants"{
+                                self.restaurant = result.businesses
+                            }
+                        }
+                    }
+                    catch{
+                        print(error)
+                    }
                 }
             }
             //MARK: Start the Data Task
