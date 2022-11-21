@@ -11,7 +11,7 @@ import CoreLocation
 class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
     var locationManager = CLLocationManager()
     
-    @Published var restaurant = [Business]()
+    @Published var restaurants = [Business]()
     @Published var sights = [Business]()
     
     override init(){
@@ -92,11 +92,12 @@ class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
                         
                         DispatchQueue.main.async {
                             //Assign results to the appropriate property
-                            if category == Constants.sightsKey{
-                                self.sights = result.businesses
-                            }
-                            else if category == Constants.restaurantsKey{
-                                self.restaurant = result.businesses
+                            switch category{
+                                case Constants.sightsKey:
+                                    self.sights = result.businesses
+                                case Constants.restaurantsKey:
+                                    self.restaurants = result.businesses
+                                default: break
                             }
                         }
                     }
