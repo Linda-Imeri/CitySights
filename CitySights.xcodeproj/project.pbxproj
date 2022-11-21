@@ -15,6 +15,10 @@
 		9C813CAB292BD54B00794EFD /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C813CAA292BD54B00794EFD /* Business.swift */; };
 		9C813CAD292BD8B600794EFD /* BusinessSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C813CAC292BD8B600794EFD /* BusinessSearch.swift */; };
 		9C813CB0292BDCD300794EFD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C813CAF292BDCD300794EFD /* Constants.swift */; };
+		9C813CB2292C2A2200794EFD /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C813CB1292C2A2200794EFD /* OnboardingView.swift */; };
+		9C813CB8292C2A5D00794EFD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C813CB7292C2A5D00794EFD /* HomeView.swift */; };
+		9C813CBB292C378500794EFD /* BusinessList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C813CBA292C378500794EFD /* BusinessList.swift */; };
+		9C813CBD292C44C400794EFD /* BusinessSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C813CBC292C44C400794EFD /* BusinessSectionHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +31,10 @@
 		9C813CAA292BD54B00794EFD /* Business.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 		9C813CAC292BD8B600794EFD /* BusinessSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSearch.swift; sourceTree = "<group>"; };
 		9C813CAF292BDCD300794EFD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9C813CB1292C2A2200794EFD /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		9C813CB7292C2A5D00794EFD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		9C813CBA292C378500794EFD /* BusinessList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessList.swift; sourceTree = "<group>"; };
+		9C813CBC292C44C400794EFD /* BusinessSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSectionHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +107,9 @@
 			isa = PBXGroup;
 			children = (
 				9C775AA5292B03ED0000AABB /* LaunchView.swift */,
+				9C813CB3292C2A2800794EFD /* Home */,
+				9C813CB4292C2A3100794EFD /* Denied */,
+				9C813CB5292C2A3700794EFD /* Onboarding */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -109,6 +120,39 @@
 				9C813CAF292BDCD300794EFD /* Constants.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		9C813CB3292C2A2800794EFD /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				9C813CB9292C376C00794EFD /* List */,
+				9C813CB7292C2A5D00794EFD /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		9C813CB4292C2A3100794EFD /* Denied */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Denied;
+			sourceTree = "<group>";
+		};
+		9C813CB5292C2A3700794EFD /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				9C813CB1292C2A2200794EFD /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		9C813CB9292C376C00794EFD /* List */ = {
+			isa = PBXGroup;
+			children = (
+				9C813CBA292C378500794EFD /* BusinessList.swift */,
+				9C813CBC292C44C400794EFD /* BusinessSectionHeader.swift */,
+			);
+			path = List;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,10 +227,14 @@
 			files = (
 				9C775AA6292B03ED0000AABB /* LaunchView.swift in Sources */,
 				9C813CAB292BD54B00794EFD /* Business.swift in Sources */,
+				9C813CBD292C44C400794EFD /* BusinessSectionHeader.swift in Sources */,
 				9C775AA4292B03ED0000AABB /* CitySightsApp.swift in Sources */,
 				9C813CAD292BD8B600794EFD /* BusinessSearch.swift in Sources */,
 				9C775AB5292B06D70000AABB /* ContentModel.swift in Sources */,
+				9C813CBB292C378500794EFD /* BusinessList.swift in Sources */,
+				9C813CB8292C2A5D00794EFD /* HomeView.swift in Sources */,
 				9C813CB0292BDCD300794EFD /* Constants.swift in Sources */,
+				9C813CB2292C2A2200794EFD /* OnboardingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
