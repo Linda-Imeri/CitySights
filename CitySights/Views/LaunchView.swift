@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  LaunchView.swift
 //  CitySights
 //
 //  Created by Linda Imeri on 21.11.22.
