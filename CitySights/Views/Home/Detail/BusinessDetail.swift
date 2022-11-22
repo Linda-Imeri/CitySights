@@ -23,6 +23,7 @@ struct BusinessDetail: View {
                         .frame(width: geo.size.width, height: geo.size.height)
                         .clipped()
                 }
+                .ignoresSafeArea(.all,edges: .top)
                 //Open/Closed indicator
                 ZStack(alignment: .leading){
                     Rectangle()
@@ -31,20 +32,24 @@ struct BusinessDetail: View {
                     Text(business.isClosed! ? "Closed" : "Open")
                         .foregroundColor(.white)
                         .bold()
+                        .padding(.leading)
                 }
             }
             Group{
                 //Business Name
                 Text(business.name!)
                     .font(.largeTitle)
+                    .padding()
                 //Loop through DisplayAddress
                 if business.location?.displayAddress != nil {
                     ForEach(business.location!.displayAddress!,id: \.self){address in
                         Text(address)
+                            .padding(.horizontal)
                     }
                 }
                 //Rating
                 Image("regular_\(business.rating ?? 0)")
+                    .padding()
                 Divider()
                 
                 //Phone
@@ -55,6 +60,7 @@ struct BusinessDetail: View {
                     Spacer()
                     Link("Call", destination: URL(string: "tel:\(business.phone ?? "")")!)
                 }
+                .padding()
                 Divider()
                 
                 //Reviews
@@ -66,14 +72,18 @@ struct BusinessDetail: View {
                     Spacer()
                     Link("Read", destination: URL(string: "\(business.url ?? "")")!)
                 }
+                .padding()
+                
                 Divider()
                 HStack{
                     Text("Websites:")
                         .bold()
                     Text(business.url ?? "" )
+                        .lineLimit(1)
                     Spacer()
                     Link("Visit", destination: URL(string: "\(business.url ?? "")")!)
                 }
+                .padding()
                 Divider()
             }
             //Get directions button
@@ -89,6 +99,7 @@ struct BusinessDetail: View {
                         .bold()
                 }
             })
+            .padding()
             
         }
     }
