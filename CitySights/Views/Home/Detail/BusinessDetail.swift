@@ -12,22 +12,27 @@ struct BusinessDetail: View {
     
     var body: some View {
         VStack(alignment: .leading){
-            GeometryReader(){geo in
-                //Business image
-                let uiImage = UIImage(data: business.imageData ?? Data())
-                Image(uiImage: uiImage ?? UIImage())
-                    .resizable()
-                    .frame(width: geo.size.width, height: geo.size.height)
-                    .clipped()
+            VStack(alignment: .leading,spacing: 0){
+                
+                GeometryReader(){geo in
+                    //Business image
+                    let uiImage = UIImage(data: business.imageData ?? Data())
+                    Image(uiImage: uiImage ?? UIImage())
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: geo.size.width, height: geo.size.height)
+                        .clipped()
+                }
+                //Open/Closed indicator
+                ZStack(alignment: .leading){
+                    Rectangle()
+                        .frame(height: 36)
+                        .foregroundColor(business.isClosed! ? .gray: .blue)
+                    Text(business.isClosed! ? "Closed" : "Open")
+                        .foregroundColor(.white)
+                        .bold()
+                }
             }
-            //Open/Closed indicator
-            ZStack(alignment: .leading){
-                Rectangle()
-                    .frame(height: 36)
-                    .foregroundColor(business.isClosed! ? .gray: .blue)
-                Text(business.isClosed! ? "Open" : "Closed")
-            }
-            
             Group{
                 //Business Name
                 Text(business.name!)
@@ -39,20 +44,51 @@ struct BusinessDetail: View {
                     }
                 }
                 //Rating
-                Image("regular_ \(business.rating ?? 0)")
+                Image("regular_\(business.rating ?? 0)")
                 Divider()
                 
                 //Phone
-                
+                HStack{
+                    Text("Phone:")
+                        .bold()
+                    Text(business.displayPhone ?? "")
+                    Spacer()
+                    Link("Call", destination: URL(string: "tel:\(business.phone ?? "")")!)
+                }
                 Divider()
                 
                 //Reviews
-                
+                //Phone
+                HStack{
+                    Text("Reviews:")
+                        .bold()
+                    Text(String(business.reviewCount ?? 0 ))
+                    Spacer()
+                    Link("Read", destination: URL(string: "\(business.url ?? "")")!)
+                }
                 Divider()
-
-                
+                HStack{
+                    Text("Websites:")
+                        .bold()
+                    Text(business.url ?? "" )
+                    Spacer()
+                    Link("Visit", destination: URL(string: "\(business.url ?? "")")!)
+                }
+                Divider()
             }
-            //
+            //Get directions button
+            Button(action: {}, label: {
+                ZStack{
+                    Rectangle()
+                        .frame(height: 58)
+                        .foregroundColor(.blue)
+                        .cornerRadius(10)
+                    
+                    Text("Get Directions")
+                        .foregroundColor(.white)
+                        .bold()
+                }
+            })
             
         }
     }
