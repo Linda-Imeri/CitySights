@@ -25,8 +25,6 @@ struct LaunchView: View {
         else{
         //If denied show denied view
         }
-        Text("Hello, world!")
-            .padding()
     }
 }
 
