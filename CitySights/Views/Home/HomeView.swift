@@ -9,22 +9,25 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var model: ContentModel
-    @State var isMApShowing = false
+    @State var isMapShowing = false
     
     var body: some View {
         if model.restaurants.count != 0 || model.sights.count != 0 {
             //Determine if we should show list of map
             NavigationView {
-                if !isMApShowing{
+                if !isMapShowing{
                     //Show list
                     VStack(alignment: .leading){
                         HStack{
                             Image(systemName: "location")
                             Text("San Francisco")
                             Spacer()
-                            Text("Switch to map view")
+                            Button("Switch to map view"){
+                                self.isMapShowing = true
+                            }
                         }
                         Divider()
+                        
                         BusinessList()
                     }
                     .padding([.horizontal,.top])
@@ -32,6 +35,8 @@ struct HomeView: View {
                 }
                 else{
                     //Show map
+                    BusinessMap()
+                        .ignoresSafeArea()
                 }
             }
         }
