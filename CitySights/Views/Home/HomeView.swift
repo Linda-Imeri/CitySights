@@ -22,7 +22,7 @@ struct HomeView: View {
                     VStack(alignment: .leading){
                         HStack{
                             Image(systemName: "location")
-                            Text("San Francisco")
+                            Text(model.placemark?.locality ?? "")
                             Spacer()
                             Button("Switch to map view"){
                                 self.isMapShowing = true
@@ -61,7 +61,7 @@ struct HomeView: View {
                             
                             HStack{
                                 Image(systemName: "location")
-                                Text("San Francisco")
+                                Text(model.placemark?.locality ?? "")
                                 Spacer()
                                 Button("Switch to list view"){
                                     self.isMapShowing = false
