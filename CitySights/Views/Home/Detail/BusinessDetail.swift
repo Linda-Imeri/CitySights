@@ -38,6 +38,7 @@ struct BusinessDetail: View {
             }
             Group{
                 BusinessTitle(business: business)
+                    .padding()
                 Divider()
                 
                 //Phone

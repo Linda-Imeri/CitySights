@@ -10,6 +10,7 @@
 		9C559BA7292D7059007FB9EC /* BusinessMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C559BA6292D7059007FB9EC /* BusinessMap.swift */; };
 		9C559BA9292DA84F007FB9EC /* DirectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C559BA8292DA84F007FB9EC /* DirectionsView.swift */; };
 		9C559BAB292DA8BF007FB9EC /* BusinessTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C559BAA292DA8BF007FB9EC /* BusinessTitle.swift */; };
+		9C559BAD292DAD95007FB9EC /* DirectionsMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C559BAC292DAD95007FB9EC /* DirectionsMap.swift */; };
 		9C6987AD292D05FE0060DE55 /* BusinessDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6987AC292D05FE0060DE55 /* BusinessDetail.swift */; };
 		9C775AA4292B03ED0000AABB /* CitySightsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C775AA3292B03ED0000AABB /* CitySightsApp.swift */; };
 		9C775AA6292B03ED0000AABB /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C775AA5292B03ED0000AABB /* LaunchView.swift */; };
@@ -31,6 +32,7 @@
 		9C559BA6292D7059007FB9EC /* BusinessMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessMap.swift; sourceTree = "<group>"; };
 		9C559BA8292DA84F007FB9EC /* DirectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsView.swift; sourceTree = "<group>"; };
 		9C559BAA292DA8BF007FB9EC /* BusinessTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessTitle.swift; sourceTree = "<group>"; };
+		9C559BAC292DAD95007FB9EC /* DirectionsMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsMap.swift; sourceTree = "<group>"; };
 		9C6987AC292D05FE0060DE55 /* BusinessDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDetail.swift; sourceTree = "<group>"; };
 		9C775AA0292B03ED0000AABB /* CitySights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CitySights.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C775AA3292B03ED0000AABB /* CitySightsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySightsApp.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				9C559BA6292D7059007FB9EC /* BusinessMap.swift */,
+				9C559BAC292DAD95007FB9EC /* DirectionsMap.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				9C559BAB292DA8BF007FB9EC /* BusinessTitle.swift in Sources */,
 				9C813CB8292C2A5D00794EFD /* HomeView.swift in Sources */,
 				9C813CB0292BDCD300794EFD /* Constants.swift in Sources */,
+				9C559BAD292DAD95007FB9EC /* DirectionsMap.swift in Sources */,
 				9C813CB2292C2A2200794EFD /* OnboardingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
