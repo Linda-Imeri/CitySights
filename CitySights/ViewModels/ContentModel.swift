@@ -9,6 +9,7 @@ import Foundation
 import CoreLocation
 
 class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
+    
     var locationManager = CLLocationManager()
     
     @Published var authorizationState = CLAuthorizationStatus.notDetermined
@@ -16,56 +17,64 @@ class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
     @Published var restaurants = [Business]()
     @Published var sights = [Business]()
     
-    override init(){
-        //Call init method of NSObject
+    override init() {
+        
+        // Init method of NSObject
         super.init()
         
-        //Set content model as the delegate of the location manager
+        // Set content model as the delegate of the location manager
         locationManager.delegate = self
         
-        // Request permission from user
+        // Request permission from the user
         locationManager.requestWhenInUseAuthorization()
         
-        //TODO: Start geolocating the user after we get permission
-        //locationManager.startUpdatingLocation()
     }
-    //MARK - Location Manager Delegate Methods
+    
+    // MARK: - Location Manager Delegate Methods
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         
-        //Update the authorizationState property
+        // Update the authorizationState property
         authorizationState = locationManager.authorizationStatus
         
-        if locationManager.authorizationStatus == .authorizedAlways || locationManager.authorizationStatus == .authorizedWhenInUse{
-            //We have permission
-            //Start geolocating the user, after we get permission
+        if locationManager.authorizationStatus == .authorizedAlways ||
+            locationManager.authorizationStatus == .authorizedWhenInUse {
+            
+            // We have permission
+            // Start geolocating the user, after we get permission
             locationManager.startUpdatingLocation()
         }
         else if locationManager.authorizationStatus == .denied {
-            //We don't have permission
+            // We don't have permission
         }
     }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        //Gives us the location of the user
+        
+        // Gives us the location of the user
         let userLocation = locations.first
+        
         if userLocation != nil {
-            //We have a location
-            //Stop requesting the location after we get it once
+            
+            // We have a location
+            // Stop requesting the location after we get it once
             locationManager.stopUpdatingLocation()
             
-            // TODO- If we have the coordinates of the user, send into YelpAPI
-            getBussinesses(category: Constants.sightsKey, location: userLocation!)
-            getBussinesses(category: Constants.restaurantsKey, location: userLocation!)
+            // If we have the coordinates of the user, send into Yelp API
+            getBusinesses(category: Constants.sightsKey, location: userLocation!)
+            getBusinesses(category: Constants.restaurantsKey, location: userLocation!)
         }
-    }
-    //MARK: = Yelp API methods
-    
-    func getBussinesses(category: String, location: CLLocation){
-        //Create URL
         
+    }
+    
+    // MARK: - Yelp API methods
+    
+    func getBusinesses(category:String, location:CLLocation) {
+        
+        // Create URL
         /*
-         let urlString = "https://api.yelp.com/v3/businesses/search?latitude=\(location.coordinate.latitude)&longitude=\(location.coordinate.longitude)&categories=\(category)&limit=6"
-         let url = URL(string: URL)
-         */
+        let urlString = "https://api.yelp.com/v3/businesses/search?latitude=\(location.coordinate.latitude)&longitude=\(location.coordinate.longitude)&categories=\(category)&limit=6"
+        let url = URL(string: urlString
+        */
         var urlComponents = URLComponents(string: Constants.apiUrl)
         urlComponents?.queryItems = [
             URLQueryItem(name: "latitude", value: String(location.coordinate.latitude)),
@@ -73,60 +82,66 @@ class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
             URLQueryItem(name: "categories", value: category),
             URLQueryItem(name: "limit", value: "6")
         ]
-        var url = urlComponents?.url
+        let url = urlComponents?.url
+        
         if let url = url {
-            
-            //MARK: Create URL Request
+        
+            // Create URL Request
             var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10.0)
             request.httpMethod = "GET"
-            
-            //Authenticate API calls with the API Key
             request.addValue("Bearer \(Constants.apiKey)", forHTTPHeaderField: "Authorization")
             
-            
-            //MARK: Get URLSession
+            // Get URLSession
             let session = URLSession.shared
             
-            //MARK: Create Data Task
+            // Create Data Task
             let dataTask = session.dataTask(with: request) { (data, response, error) in
-                //Check that there isn't an error
-                if error == nil{
-                    do{
-                        //Parse json
+                
+                // Check that there isn't an error
+                if error == nil {
+                    
+                    do {
+                        // Parse json
                         let decoder = JSONDecoder()
                         let result = try decoder.decode(BusinessSearch.self, from: data!)
                         
-                        //Sort businesses
+                        // Sort businesses
                         var businesses = result.businesses
-                        businesses.sort {( b1, b2) -> Bool in
+                        businesses.sort { (b1, b2) -> Bool in
                             return b1.distance ?? 0 < b2.distance ?? 0
                         }
                         
-                        //Call the get image function of the businesses
+                        // Call the get image function of the businesses
                         for b in businesses {
                             b.getImageData()
                         }
                         
                         DispatchQueue.main.async {
-                            //Assign results to the appropriate property
-                            switch category{
-                                case Constants.sightsKey:
-                                    self.sights = businesses
-                                case Constants.restaurantsKey:
-                                    self.restaurants = businesses
-                                default: break
+                            
+                            // Assign results to the appropriate property
+                            
+                            switch category {
+                            case Constants.sightsKey:
+                                self.sights = businesses
+                            case Constants.restaurantsKey:
+                                self.restaurants = businesses
+                            default:
+                                break
                             }
                         }
+                        
                     }
-                    catch{
+                    catch {
                         print(error)
                     }
                 }
             }
-            //MARK: Start the Data Task
+            
+            // Start the Data Task
             dataTask.resume()
         }
         
-        
     }
+    
+    
 }

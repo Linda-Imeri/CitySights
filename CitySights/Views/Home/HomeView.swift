@@ -12,7 +12,8 @@ struct HomeView: View {
     @State var isMapShowing = false
     
     var body: some View {
-        if model.restaurants.count != 0 || model.sights.count != 0 {
+        
+        if model.restaurants.count != 0  {
             //Determine if we should show list of map
             NavigationView {
                 if !isMapShowing{

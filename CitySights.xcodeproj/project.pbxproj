@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C559BA7292D7059007FB9EC /* BusinessMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C559BA6292D7059007FB9EC /* BusinessMap.swift */; };
 		9C6987AD292D05FE0060DE55 /* BusinessDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6987AC292D05FE0060DE55 /* BusinessDetail.swift */; };
-		9C6987B2292D37C80060DE55 /* BusinessMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6987B1292D37C80060DE55 /* BusinessMap.swift */; };
 		9C775AA4292B03ED0000AABB /* CitySightsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C775AA3292B03ED0000AABB /* CitySightsApp.swift */; };
 		9C775AA6292B03ED0000AABB /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C775AA5292B03ED0000AABB /* LaunchView.swift */; };
 		9C775AA8292B03EF0000AABB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C775AA7292B03EF0000AABB /* Assets.xcassets */; };
@@ -26,8 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9C559BA6292D7059007FB9EC /* BusinessMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessMap.swift; sourceTree = "<group>"; };
 		9C6987AC292D05FE0060DE55 /* BusinessDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDetail.swift; sourceTree = "<group>"; };
-		9C6987B1292D37C80060DE55 /* BusinessMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessMap.swift; sourceTree = "<group>"; };
 		9C775AA0292B03ED0000AABB /* CitySights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CitySights.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C775AA3292B03ED0000AABB /* CitySightsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySightsApp.swift; sourceTree = "<group>"; };
 		9C775AA5292B03ED0000AABB /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
@@ -67,7 +67,7 @@
 		9C6987AE292D37630060DE55 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				9C6987B1292D37C80060DE55 /* BusinessMap.swift */,
+				9C559BA6292D7059007FB9EC /* BusinessMap.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -255,7 +255,7 @@
 			files = (
 				9C6987AD292D05FE0060DE55 /* BusinessDetail.swift in Sources */,
 				9C813CBF292C465500794EFD /* BusinessSection.swift in Sources */,
-				9C6987B2292D37C80060DE55 /* BusinessMap.swift in Sources */,
+				9C559BA7292D7059007FB9EC /* BusinessMap.swift in Sources */,
 				9C775AA6292B03ED0000AABB /* LaunchView.swift in Sources */,
 				9C813CAB292BD54B00794EFD /* Business.swift in Sources */,
 				9C813CBD292C44C400794EFD /* BusinessSectionHeader.swift in Sources */,
