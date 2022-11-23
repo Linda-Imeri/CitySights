@@ -23,7 +23,7 @@ struct DirectionsView: View {
                 }
             }.padding()
             //Directions Map
-            DirectionsMap()
+            DirectionsMap(business: business)
         }
         .ignoresSafeArea(.all,edges: .bottom)
     }
