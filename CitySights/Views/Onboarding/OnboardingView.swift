@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct OnboardingView: View {
+    
+    @EnvironmentObject var model: ContentModel
     @State private var tabSelection = 0
     
     var body: some View {
@@ -17,6 +19,8 @@ struct OnboardingView: View {
                 //First tab
                 VStack{
                     Image("city1")
+                        .resizable()
+                        .scaledToFit()
                     Text("Welcome to City Sights")
                         .bold()
                         .font(.title)
@@ -27,6 +31,8 @@ struct OnboardingView: View {
                 //Second tab
                 VStack{
                     Image("city2")
+                        .resizable()
+                        .scaledToFit()
                     Text("Ready to discover your city? ")
                         .bold()
                         .font(.title)
@@ -44,8 +50,7 @@ struct OnboardingView: View {
                 }
                 //Request for geolocation permission
                 else{
-                    
-                    
+                    model.requestGeoLocationPermission()
                 }
             } label: {
                 ZStack{
