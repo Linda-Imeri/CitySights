@@ -11,10 +11,11 @@ struct BusinessTitle: View {
     var business: Business
     
     var body: some View {
-        VStack{
+        VStack(alignment: .leading){
             //Business Name
             Text(business.name!)
-                .font(.largeTitle)
+                .font(.title2)
+            
             //Loop through DisplayAddress
             if business.location?.displayAddress != nil {
                 ForEach(business.location!.displayAddress!,id: \.self){address in

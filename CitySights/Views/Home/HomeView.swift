@@ -30,7 +30,15 @@ struct HomeView: View {
                         }
                         Divider()
                         
-                        BusinessList()
+                        ZStack(alignment: .top){
+                            BusinessList()
+                            
+                            HStack{
+                                Spacer()
+                                YelpAttribution(link: "https://yelp.ca")
+                            }
+                            .padding(.trailing,-20)
+                        }
                     }
                     .padding([.horizontal,.top])
                     .navigationBarHidden(true)
