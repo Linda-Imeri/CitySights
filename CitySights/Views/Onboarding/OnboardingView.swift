@@ -12,12 +12,16 @@ struct OnboardingView: View {
     @EnvironmentObject var model: ContentModel
     @State private var tabSelection = 0
     
+    private let blue = Color(red: 0/255, green: 130/255, blue: 167/255)
+    private let turquoise = Color(red: 55/255, green: 197/255, blue: 192/255)
+
+    
     var body: some View {
         VStack{
             //Tab View
             TabView(selection: $tabSelection) {
                 //First tab
-                VStack{
+                VStack(spacing: 20){
                     Image("city1")
                         .resizable()
                         .scaledToFit()
@@ -25,11 +29,15 @@ struct OnboardingView: View {
                         .bold()
                         .font(.title)
                     Text("City Sights helps you find the best of the city!")
+                        
                 }
+                .multilineTextAlignment(.center)
+                .padding()
+                .foregroundColor(.white)
                 .tag(0)
                 
                 //Second tab
-                VStack{
+                VStack(spacing: 20){
                     Image("city2")
                         .resizable()
                         .scaledToFit()
@@ -37,7 +45,11 @@ struct OnboardingView: View {
                         .bold()
                         .font(.title)
                     Text("We'll show you the best restaurants, venues and more,based on your location!")
+
                 }
+                .multilineTextAlignment(.center)
+                .padding()
+                .foregroundColor(.white)
                 .tag(1)
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
@@ -64,8 +76,13 @@ struct OnboardingView: View {
                         .padding()
                 }
             }
-
+            .accentColor(tabSelection == 0 ? blue : turquoise)
+            .padding()
+            
+            Spacer()
         }
+        .background(tabSelection == 0 ? blue : turquoise)
+        .ignoresSafeArea(.all,edges: .all)
     }
 }
 
